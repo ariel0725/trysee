@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loading</title>
+
+<style>
+	
+	
+ .img {
+	
+	  width:30%;
+	  
+	  margin:10px;
+	  display: inline-block;
+	  margin-bottom:10px;}	
+	
+	
+	
+	
+#wrapper{
+	padding: 100px 100px;
+	margin: 0 auto;
+	border: 20px solid #23569d;
+}
+#header{
+	border-bottom: 2px solid #23569d;
+}
+#footer{
+	margin-top: 150px;
+	border-top: 2px solid #999;
+}
+
+
+
+#loading-mask{
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: #f9f9f9;
+}
+
+#moveout{
+	position:absolute;
+	left:50%;
+	top: 50%;
+	margin-left:-20px;
+	margin-top:-40px;
+}
+	
+	/*hidden mode*/
+#loading-mask.hidden{
+	animation: fadeOut 1.5s;
+	animation-fill-mode: forwards;		
+	/*show 1 time animation then stop*/
+}  
+
+#moveout.hidden{
+	position:absolute;
+	left:50%;
+	top: 50%;
+	margin-left:-20px;
+	margin-top:-40px;
+	animation: testmove 3s,swing ease-in-out 0.2s infinite alternate;
+    transform-origin: center -20px;
+       }
+	
+	
+@keyframes fadeOut{
+	100%{
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+
+/*#loading-block{
+	width: 80px;
+	height: 80px;
+	margin: 200px auto;
+}*/
+
+
+/* loading animate css :  sample from   https://loading.io/css/   */
+	
+		
+	      .gif{ 
+	          animation: swing ease-in-out 0.5s infinite alternate;}
+		
+		  .loaderContainer {
+          
+              transform: translate(-50%, -50%);
+              }
+	  
+	      
+		  .smoke {
+ 			 width:25px;
+ 			 height:25px;
+ 			 background-color:#23569d;
+ 			 border-radius:50%;
+ 			 left:-4px;
+  			 top:27px;
+  			 position:absolute;
+ 			 opacity:0;
+  			 animation: smoky .6s linear infinite;
+  			 z-index:9;
+					}
+			.smoke:nth-child(1) {
+			  left:12px;
+			  top:28px;
+			  animation-delay: .1s;
+			}
+			.smoke:nth-child(2) {
+			  left:7px;
+			  top:26px;
+			}
+			.smoke:nth-child(3) {
+			  left:7px;
+			  top:31px;
+			  animation-delay: .2s;
+			}
+			.smoke:nth-child(4) {
+			  left:2px;
+			  top:26px;
+			  animation-delay: .5s;
+			}
+			 
+		  .h1 {
+			  cursor: default;
+			  position: absolute;
+			  left:50%;
+			  top: 50%;
+		      margin-left:-30px;
+			  font-family: roboto;
+			   display: block;
+			  text-align: center;
+			  letter-spacing:-3px;
+			  
+		 }
+
+		h1 span {
+		  position: relative;
+		  top:4px;
+		  display: inline-block;
+		  -webkit-animation: bounce 0.3s ease infinite alternate;
+		  font-size: 16px;
+		  color: #23569d;
+
+		}
+
+		h1 span:nth-child(2) {
+		  -webkit-animation-delay: 0.1s;
+		}
+
+		h1 span:nth-child(3) {
+		  -webkit-animation-delay: 0.2s;
+		}
+
+		h1 span:nth-child(4) {
+		  -webkit-animation-delay: 0.3s;
+		}
+
+		h1 span:nth-child(5) {
+		  -webkit-animation-delay: 0.4s;
+		}
+
+		h1 span:nth-child(6) {
+		  -webkit-animation-delay: 0.5s;
+		}
+
+		h1 span:nth-child(7) {
+		  -webkit-animation-delay: 0.6s;
+		}
+		  
+		
+
+		/* ANIMATION */
+	
+		 @keyframes smoky 
+		  {0%  { transform: scale(0);opacity:1}
+	      100% { transform: scale(1);opacity:0}
+	        }
+	   
+		@-webkit-keyframes bounce {
+		  100% {
+			top: -1px;}
+		}
+		@keyframes swing {
+			0% { transform: rotate(-4deg);
+			     }
+			100% { transform: rotate(4deg);
+			       }
+		}
+	    @keyframes testmove 
+		  {0% { transform: rotate(-3deg);
+			     }
+	      100% { left:100%;
+			     top:30%;}
+	        }
+	
+
+
+}
+</style>
+<script type="text/javascript">
+/*
+- 偵測window，達成下載完成的事件後，執行 function
+- 選取loading的範圍
+- 加上css class : hidden
+
+*/
+	window.addEventListener("load", function(){
+		const loader = document.querySelector("#loading-mask");
+		loader.className += " hidden";}
+	);
+	window.addEventListener("load", function(){
+		const loader = document.querySelector("#moveout");
+		loader.className += " hidden";}
+	);
+	
+</script>	
+
+
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="header">
+		<h1>Loading Present</h1>
+	</div>
+	<div id="main">
+		<h2>Refenece Text</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae deserunt asperiores, accusantium expedita dolores quidem dolore aliquid similique dolorum soluta ad numquam sint quam rerum doloribus nam quas. Beatae at recusandae officia magnam repellendus dolores quidem aliquid eius quos explicabo ullam ad, laboriosam necessitatibus autem assumenda omnis distinctio consectetur neque expedita. Optio, delectus, accusantium. Mollitia iusto dolor ea, harum ab quasi a molestias debitis dignissimos. Voluptatem facilis repellat necessitatibus aut aliquid tempora reiciendis quo dolor? Nobis fugit, quasi molestiae enim incidunt? Distinctio magnam veritatis debitis, assumenda cupiditate commodi impedit, vel odio. Quis iusto accusantium dicta consequuntur facere rem magnam impedit, error fugit aliquid inventore ipsum autem repellat rerum libero maiores deserunt voluptates? Laudantium, impedit sapiente ipsam facilis nam harum explicabo excepturi, tempore, tempora facere perferendis dignissimos qui quos a cupiditate doloremque blanditiis mollitia deleniti? Expedita aspernatur suscipit, consectetur eligendi ipsa praesentium odio dicta labore provident, hic quia beatae magnam repudiandae blanditiis cupiditate molestiae modi itaque perferendis officia! Nesciunt delectus quod non explicabo incidunt totam cupiditate nulla. Architecto, possimus maxime consequatur maiores nemo illum veritatis quibusdam dolor, amet facere, in asperiores fuga deleniti. Dignissimos, facere fugit accusantium iure totam sequi fuga, repellendus iste dicta necessitatibus possimus aperiam, ex expedita. Vero, excepturi?</p>
+
+		<p>
+			<img class="img" src="https://images.hdqwalls.com/download/marvels-spider-man-ps4-theme-art-10k-sk-7680x4320.jpg" alt="" >
+		
+			<img class="img" src="https://blogassets.policypal.com/wp-content/uploads/2019/06/06105249/122738629_l.jpg" alt="">
+		
+			<img class="img" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg" alt="" >
+		</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus uLorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos debitis voluptates dolorum, ducimus nostrum, sit commodi odit ipsam nemo enim placeat officiis adipisci, maxime. Atque facilis sequi iusto. Adipisci quibusdam, enim. Magnam quidem impedit odio harum voluptatum dolores, id hic corporis ipsum provident vitae ea ex distinctio reiciendis delectus cum, ab voluptatem officiis dolor repudiandae eos dolorem nisi! Itaque repudiandae repellat aliquam esse assumenda, ea eius, voluptate molestias nulla et asperiores corporis suscipit tempora iste libero sed, accusamus ullam inventore quae blanditiis rem. Rerum a quos veritatis sequi inventore voluptatem quidem cupiditate consectetur fugit dignissimos, ratione veniam laborum vero, officiis impedit, molestiae magnam nesciunt facere unde perspiciatis officia voluptatibus, deserunt quod. Nihil voluptatum, ullam tempora pariatur corporis, porro tempore repellendus consectetur rerum odit enim aliquam non veniam architecto voluptatibus alias eius nisi quas. Officia dolores alias beatae optio voluptas tempore dignissimos, fugiat corporis pariatur consequuntur illo quisquam enim eaque.</p>
+	</div>
+	<div id="footer">
+		<p>China Airlines</p>
+	</div>
+</div>
+	<div id="loading-mask" >
+		<h1 class="h1" >
+	  <span>L</span>
+	  <span>o</span>
+	  <span>a</span>
+	  <span>d</span>
+	  <span>i</span>
+	  <span>n</span>
+	  <span>g</span>
+
+	</h1>
+		
+	
+	<div id="moveout">
+	 <div class="loaderContainer">
+     
+      <div class="smoke"></div>
+      <div class="smoke"></div>
+      <div class="smoke"></div>
+      <div class="smoke"></div>
+    </div>
+	<img class="gif" src="https://i.imgur.com/zGOX6y0.png	" width="80" alt="loading"/ >
+	</div>
+</div>
+	
+
+</body>
+</html>
